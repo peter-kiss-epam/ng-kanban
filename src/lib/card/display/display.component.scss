@@ -1,0 +1,55 @@
+@import "../../variables";
+
+.card {
+  cursor: pointer;
+}
+
+:host, label {
+  // sizing
+  display: block;
+  width: calc(#{$card-width} + 2);
+  height: calc(#{$card-height} + 2);
+}
+
+label {
+  border: 2px solid $pale-bg-color;
+  box-sizing: content-box;
+
+  display: block;
+  width: $card-width;
+  height: $card-height;
+  // center
+  text-align: center;
+  line-height: $card-height;
+  // one-line ellipsis
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  // user behavior
+  cursor: pointer;
+  user-select: none;
+}
+
+:host {
+  &.dragging {
+    visibility: hidden;
+    height: 0;
+
+    label {
+      position: fixed;
+      visibility: visible;
+      background-color: #E8E8E8;
+    }
+  }
+
+  &.over {
+    opacity: 0.8;
+    /*position: relative;
+    top: calc( #{$card-height} / 2 );*/
+  }
+}
+
+:host:hover {
+  background-color: $pale-bg-color;
+}
+

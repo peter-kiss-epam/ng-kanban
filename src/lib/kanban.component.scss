@@ -1,0 +1,24 @@
+@import "./variables";
+
+.board {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.column {
+  min-width: $card-width;
+  min-height: $card-height;
+  border-left: 1px solid $column-border;
+
+  text-align: center;
+}
+
+.column:first-child {
+  border-left: 0px;
+}
+
+h2 {
+  color: #B8B8B8;
+}
