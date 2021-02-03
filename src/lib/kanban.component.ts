@@ -12,6 +12,8 @@ import {
 } from '@angular/core';
 import { CardsService } from './cards.service';
 import { Subscription } from 'rxjs';
+import { IColumn } from './IColumn';
+import { ICard } from './card/ICard';
 
 @Component({
   selector: 'kanban-board',
@@ -46,5 +48,13 @@ export class KanbanComponent implements AfterViewInit, OnInit, OnDestroy, AfterV
       const rect = el.nativeElement.getBoundingClientRect();
       this.cards.setColumnRect(i, rect);
     });
+  }
+
+  trackByColumnsFn(index: number, item: IColumn): string {
+    return item.name;
+  }
+
+  trackByCardsFn(index: number, item: ICard): string {
+    return item.column + item.content;
   }
 }

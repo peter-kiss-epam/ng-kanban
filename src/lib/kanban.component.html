@@ -1,8 +1,11 @@
-<app-card-create></app-card-create>
-<app-clear-cards></app-clear-cards>
+<section class="header">
+  <app-card-create></app-card-create>
+  <app-clear-cards></app-clear-cards>
+</section>
 <section class="board">
-  <div *ngFor="let column of cards.columns" class="column" #column>
+  <div *ngFor="let column of cards.columns; trackBy: trackByColumnsFn" class="column" #column>
     <h2>{{column.title}}</h2>
-    <app-card-display *ngFor="let card of cards.filter(column.name)" [card]="card"></app-card-display>
+    <app-card-display *ngFor="let card of cards.filter(column.name); trackBy: trackByCardsFn"
+                      [card]="card"></app-card-display>
   </div>
 </section>

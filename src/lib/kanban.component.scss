@@ -1,5 +1,17 @@
 @import "./variables";
 
+:host {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
 .board {
   display: flex;
   width: 100%;
